@@ -1,38 +1,79 @@
-.App {
+.slider-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 5%;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.slide {
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  /* transition: filter 0.9s; */
+  filter: grayscale(99%);
+  margin: 0 10px;
+  background-position: center;
+ 
+}
+
+
+.slide.active {
+  filter: none;
+  width: 300px;
+  height: 200px;
+}
+
+
+
+.slider-controls {
+  margin-top: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  margin: 0 5px;
+  border: none;
+  background: #007bff75;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+button:hover {
+  background: #0056b3;
+}
+
+button.active {
+  background: #0056b3;
+}
+.carousel-button{
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  .slide {
+    filter: none;
+    min-width: 80vw;
+    min-height: 60vh;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .carousel-button {
+    position: absolute;
+    display:block;
   }
-  to {
-    transform: rotate(360deg);
+  .carousel-button.left {
+    left: 0;
+    top: 50%;
+  }
+  .carousel-button.right {
+    right: 0;
+    top: 50%;
   }
 }
